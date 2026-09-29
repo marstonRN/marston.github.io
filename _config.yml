@@ -9,9 +9,9 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
-title                    : "Marston Mark"
+title                    : "Marston M"
 title_separator          : "-"
-name                     : &name "Marston Mark"
+name                     : &name "Marston M"
 description              : &description "Your Name's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://marston.ch # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
@@ -24,12 +24,12 @@ repository               : "marstonRN/marston.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
-  uri              : # URL
+  name             : "Mark T Marston, PhD"
+  pronouns         : "he/him"  
+  bio              : "PICU nurse | Researcher | Pationate"
+  location         : "Lausanne, CH"
+  employer         : "Nursing School La Source"
+  uri              : "https://www.ecolelasource.ch/fr/recherche-innovation/laboratoires-service-ri/ler-sante-enfant-famille"
   email            : "m.marston@ecolelasource.ch" 
 
   # Academic websites
