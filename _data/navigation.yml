@@ -10,15 +10,19 @@
 main:
   - title: "About"
     url: /about/
+    <!--
   # Bio,CV, achievements (including testimonials from SSMI, Harald, ASR, AOB)
     
   # - title: "CV"
   #   url: /cv-json/
+  -->
     
   - title: "Publications"
     url: /publications/
+    <!--
   # Categorised by peer-reviewed, presentations, ...
   # Show publications as title pages that can be scrolled horizontaly
+-->
 
   - title: "Teaching"
     url: /teaching/    
