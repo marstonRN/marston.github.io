@@ -9,7 +9,7 @@
 
 main:
   - title: "About"
-    url: /about/
+    url: /cv/
     <!--
   # Bio,CV, achievements (including testimonials from SSMI, Harald, ASR, AOB)
     
@@ -29,10 +29,10 @@ main:
     
   - title: "Events"
     url: /year-archive/
+  <!-- Don't show
   # Include a LinkedIn stream if possible
     
-  <!-- Don't show
-  - title: "Talks"
+    - title: "Talks"
     url: /talks/    
 
   - title: "Portfolio"
