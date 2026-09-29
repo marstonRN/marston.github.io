@@ -13,10 +13,10 @@ title                    : "Marston Mark"
 title_separator          : "-"
 name                     : &name "Marston Mark"
 description              : &description "Your Name's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
-url                      : https://github.com/marstonRN/marston.ch.git # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
+url                      : https://github.com/marston.ch.git # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "marstonRN/marston.ch.github.io"
+repository               : "marstonRN/marston.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
