@@ -8,26 +8,35 @@
 #      Markdown formatted page while the second is generated using JSON.
 
 main:
+  - title: "About"
+    url: /about/
+  # Bio,CV, achievements (including testimonials from SSMI, Harald, ASR, AOB)
+    
+  # - title: "CV"
+  #   url: /cv-json/
+    
   - title: "Publications"
     url: /publications/
-
-  - title: "Talks"
-    url: /talks/    
+  # Categorised by peer-reviewed, presentations, ...
+  # Show publications as title pages that can be scrolled horizontaly
 
   - title: "Teaching"
     url: /teaching/    
     
+  - title: "Events"
+    url: /year-archive/
+  # Include a LinkedIn stream if possible
+    
+  <!-- Don't show
+  - title: "Talks"
+    url: /talks/    
+
   - title: "Portfolio"
     url: /portfolio/
         
   - title: "Blog Posts"
     url: /year-archive/
-    
-  - title: "CV"
-    url: /cv/
-    
-  # - title: "CV"
-  #   url: /cv-json/
+    -->
     
   - title: "Guide"
     url: /markdown/
