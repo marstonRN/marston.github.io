@@ -2,7 +2,7 @@
 title: "Development and implementation of the OCTO-Plus training program - Engineering education"
 collection: publications
 category: posters
-permalink: /publication/2023_publication_3-octoplus_feasibility_poster_img
+permalink: /publication/2023_publication_4-octoplus_training_poster_img
 excerpt: 'This paper is about a famous math equation, $$E=mc^2$$'
 date: 2026-09-26
 venue: 'WFPICCS meeting 2026'
