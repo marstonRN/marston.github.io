@@ -17,7 +17,7 @@ Education
 
 Work experience
 ======
-* Fall 2024: Full UAS professor
+* Current: Full UAS professor
   * Head of the Education and Research Lab on Child and Family Health
   * Nursing School La Source, Lausanne, CH
 
