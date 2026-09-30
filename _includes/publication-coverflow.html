@@ -1,0 +1,203 @@
+{% comment %}
+  Publication cover flow.
+  Shows every publication in _publications/ with a "cover:" line, newest first.
+  The front cover opens the publication's page; a side cover moves to the front when clicked.
+  Usage: {% include publication-coverflow.html %}
+{% endcomment %}
+{% assign flow_pubs = site.publications | where_exp: "p", "p.cover" | sort: "date" | reverse %}
+{% if flow_pubs.size > 0 %}
+<section class="pub-flow" aria-roledescription="carousel" aria-label="Publications by title page">
+<div class="pub-flow__stage">
+{% for pub in flow_pubs %}
+<a class="pub-flow__item" href="{{ pub.url | relative_url }}" data-title="{{ pub.title | escape }}" data-year="{{ pub.date | date: '%Y' }}">
+<img src="{{ pub.cover | relative_url }}" alt="Title page of {{ pub.title | escape }}" loading="lazy" width="210" height="297">
+</a>
+{% endfor %}
+<button type="button" class="pub-flow__btn pub-flow__btn--prev" aria-label="Previous publication">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19"/></svg>
+</button>
+<button type="button" class="pub-flow__btn pub-flow__btn--next" aria-label="Next publication">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19"/></svg>
+</button>
+</div>
+<p class="pub-flow__caption" aria-live="polite">
+<a class="pub-flow__caption-link" href="#"></a>
+<span class="pub-flow__caption-year"></span>
+</p>
+</section>
+
+<style>
+.pub-flow {
+  --cover-w: clamp(120px, 32vw, 190px);
+  margin: 1.5em 0 2.5em;
+}
+.pub-flow__stage {
+  position: relative;
+  height: calc(var(--cover-w) * 1.414 + 1.5rem);
+  overflow: hidden;
+  perspective: 1100px;
+}
+.pub-flow__item {
+  position: absolute;
+  top: 0.75rem;
+  left: 50%;
+  width: var(--cover-w);
+  margin-left: calc(var(--cover-w) / -2);
+  transform-origin: center center;
+  transition: transform 0.45s ease, opacity 0.45s ease;
+  outline: none;
+}
+.pub-flow__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 210 / 297; /* A4 page proportions */
+  object-fit: cover;
+  object-position: top;
+  background: #fff;
+  border: 1px solid var(--global-border-color, #d9d9d9);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+.pub-flow__item.is-active img {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+.pub-flow__item:focus-visible img {
+  outline: 3px solid var(--global-link-color, #2f6f7e);
+  outline-offset: 3px;
+}
+.pub-flow__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 300;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-top: -1.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--global-border-color, #d9d9d9);
+  border-radius: 50%;
+  background: var(--global-bg-color, #fff);
+  color: var(--global-text-color, #333);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+.pub-flow__btn:focus-visible {
+  outline: 2px solid var(--global-link-color, #2f6f7e);
+  outline-offset: 2px;
+}
+.pub-flow__btn svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pub-flow__btn--prev { left: 0.25rem; }
+.pub-flow__btn--next { right: 0.25rem; }
+.pub-flow__btn[disabled] { opacity: 0.3; cursor: default; }
+.pub-flow__caption {
+  max-width: 36em;
+  margin: 0.75rem auto 0;
+  text-align: center;
+  font-size: 0.85em;
+  line-height: 1.4;
+}
+.pub-flow__caption-link {
+  display: block;
+  font-weight: 600;
+}
+.pub-flow__caption-year {
+  color: var(--global-text-color-light, #6b6b6b);
+  font-size: 0.9em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pub-flow__item { transition: none; }
+}
+</style>
+
+<script>
+(function () {
+  document.querySelectorAll('.pub-flow').forEach(function (flow) {
+    var stage = flow.querySelector('.pub-flow__stage');
+    var items = Array.prototype.slice.call(flow.querySelectorAll('.pub-flow__item'));
+    var prev = flow.querySelector('.pub-flow__btn--prev');
+    var next = flow.querySelector('.pub-flow__btn--next');
+    var capLink = flow.querySelector('.pub-flow__caption-link');
+    var capYear = flow.querySelector('.pub-flow__caption-year');
+    var n = items.length;
+    var loop = n >= 5;      /* endless circle once there are enough covers */
+    var active = 0;         /* newest publication starts in front */
+
+    function distance(i) {
+      var d = i - active;
+      if (loop) {
+        if (d > n / 2) d -= n;
+        if (d < -n / 2) d += n;
+      }
+      return d;
+    }
+
+    function render() {
+      var w = items[0].offsetWidth;
+      items.forEach(function (item, i) {
+        var d = distance(i);
+        var a = Math.abs(d);
+        var x = d * w * 0.55;                         /* overlap between neighbours */
+        var scale = a === 0 ? 1 : Math.max(0.6, 0.85 - (a - 1) * 0.12);
+        var turn = d === 0 ? 0 : (d < 0 ? 20 : -20);
+        item.style.transform = 'translateX(' + x + 'px) scale(' + scale + ') rotateY(' + turn + 'deg)';
+        item.style.zIndex = 100 - a;
+        item.style.opacity = a === 0 ? 1 : a === 1 ? 0.85 : a === 2 ? 0.4 : 0;
+        item.style.pointerEvents = a > 2 ? 'none' : 'auto';
+        item.classList.toggle('is-active', a === 0);
+        item.setAttribute('tabindex', a === 0 ? '0' : '-1');
+        item.setAttribute('aria-hidden', a === 0 ? 'false' : 'true');
+      });
+      var current = items[active];
+      capLink.textContent = current.getAttribute('data-title');
+      capLink.href = current.href;
+      capYear.textContent = current.getAttribute('data-year');
+      if (!loop) {
+        prev.disabled = active === 0;
+        next.disabled = active === n - 1;
+      }
+      if (n < 2) { prev.hidden = true; next.hidden = true; }
+    }
+
+    function go(i) {
+      active = loop ? (i + n) % n : Math.max(0, Math.min(n - 1, i));
+      render();
+    }
+
+    items.forEach(function (item, i) {
+      item.addEventListener('click', function (e) {
+        if (i !== active) { e.preventDefault(); go(i); }
+      });
+    });
+    prev.addEventListener('click', function () { go(active - 1); });
+    next.addEventListener('click', function () { go(active + 1); });
+
+    flow.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(active - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(active + 1); }
+    });
+
+    var startX = null;
+    stage.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(active + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    window.addEventListener('resize', render);
+    render();
+  });
+})();
+</script>
+{% endif %}
