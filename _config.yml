@@ -85,12 +85,14 @@ author:
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
   books:
-    title: 'Books'
+    title: 'Book chapters'
   manuscripts:
-    title: 'Journal Articles'    
+    title: 'Articles'    
   conferences:
-    title: 'Conference Papers'
-
+    title: 'Presentations and talks'
+  Posters:
+    title: 'Posters'
+    
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
 breadcrumbs              : false # true, false (default)
