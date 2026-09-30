@@ -12,33 +12,28 @@ main:
   # Include a LinkedIn stream if possible
   - title: "About"
     url: /cv/
-   
+    
   # Categorised by peer-reviewed, presentations, ...
   # Show publications as title pages that can be scrolled horizontaly
   - title: "Publications"
     url: /publications/
-   
+    
   - title: "Teaching"
-    url: /teaching/    
+    url: /teaching/
     
   - title: "Events"
     url: /year-archive/
-
+    
 # --------------------------
 # Hidden menu items
 # --------------------------
 # - title: "CV"
-# url: /cv-json/
- 
+#   url: /cv-json/
 # - title: "Talks"
-# url: /talks/
- 
+#   url: /talks/
 # - title: "Portfolio"
-# url: /portfolio/
- 
+#   url: /portfolio/
 # - title: "Blog Posts"
-# url: /year-archive/
- 
+#   url: /year-archive/
 # - title: "Guide"
-# url: /markdown/
-  
+#   url: /markdown/
