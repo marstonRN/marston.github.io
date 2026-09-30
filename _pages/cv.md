@@ -23,11 +23,11 @@ Work experience
 
 * 2022-2024: Research assistant (50%)
   * Institute of Higher Education and Research in Healthcare, Lausanne, CH
-  * Duties included: Supporting research activities, lecturing (family-centred care)
+  * Activities: Supporting research activities, lecturing (family-centred care)
 
 * 2021-2024: Clinical nurse specialist and scientific collaborator (30%)
   * Woman-Mother-Child Department, Lausanne University Hospital, Lausanne, CH
-  * Duties included: Strengthen research capacity, support quality improvement projects, enact the academic-clinical partnership, enhance clinical and evidence-based practices
+  * Activities: Strengthen research capacity, support quality improvement projects, enact the academic-clinical partnership, enhance clinical and evidence-based practices
   * Supervisor: Prof. Anne-Sylvie Ramelet
  
 * 2016-2024: Intensive care nurse and clinical nurse specialist
