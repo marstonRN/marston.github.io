@@ -1,0 +1,152 @@
+{% comment %}
+  Publication cover carousel.
+  Shows every publication in _publications/ that has a "cover:" line in its front matter,
+  newest first. Clicking a cover opens that publication's page.
+  Usage: {% include publication-carousel.html %}
+{% endcomment %}
+{% assign pub_covers = site.publications | where_exp: "p", "p.cover" | sort: "date" | reverse %}
+{% if pub_covers.size > 0 %}
+<section class="pub-carousel" aria-label="Publications by title page">
+<button type="button" class="pub-carousel__btn pub-carousel__btn--prev" aria-label="Scroll to previous publications">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19"/></svg>
+</button>
+<ul class="pub-carousel__track">
+{% for pub in pub_covers %}
+<li class="pub-carousel__item">
+<a class="pub-carousel__link" href="{{ pub.url | relative_url }}">
+<img src="{{ pub.cover | relative_url }}" alt="Title page of {{ pub.title | escape }}" loading="lazy" width="210" height="297">
+<span class="pub-carousel__title">{{ pub.title }}</span>
+<span class="pub-carousel__year">{{ pub.date | date: "%Y" }}</span>
+</a>
+</li>
+{% endfor %}
+</ul>
+<button type="button" class="pub-carousel__btn pub-carousel__btn--next" aria-label="Scroll to next publications">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19"/></svg>
+</button>
+</section>
+
+<style>
+.pub-carousel {
+  position: relative;
+  margin: 1.5em 0 2.5em;
+}
+.pub-carousel__track {
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0.5rem 0.25rem 1rem;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+.pub-carousel__item {
+  flex: 0 0 clamp(130px, 28vw, 170px);
+  margin: 0;
+  scroll-snap-align: start;
+}
+.pub-carousel__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: inherit;
+  text-decoration: none;
+}
+.pub-carousel__link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 210 / 297; /* A4 page proportions */
+  object-fit: cover;
+  object-position: top;
+  background: #fff;
+  border: 1px solid var(--global-border-color, #d9d9d9);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pub-carousel__link:hover img,
+.pub-carousel__link:focus-visible img {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+.pub-carousel__link:focus-visible {
+  outline: 2px solid var(--global-link-color, #2f6f7e);
+  outline-offset: 4px;
+}
+.pub-carousel__title {
+  font-size: 0.78em;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pub-carousel__year {
+  font-size: 0.72em;
+  color: var(--global-text-color-light, #6b6b6b);
+}
+.pub-carousel__btn {
+  position: absolute;
+  top: calc(50% - 2.5rem);
+  z-index: 1;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--global-border-color, #d9d9d9);
+  border-radius: 50%;
+  background: var(--global-bg-color, #fff);
+  color: var(--global-text-color, #333);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+.pub-carousel__btn svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pub-carousel__btn--prev { left: -0.75rem; }
+.pub-carousel__btn--next { right: -0.75rem; }
+.pub-carousel__btn[disabled] { opacity: 0; pointer-events: none; }
+@media (hover: none) {
+  .pub-carousel__btn { display: none; } /* touch screens swipe instead */
+}
+@media (prefers-reduced-motion: reduce) {
+  .pub-carousel__track { scroll-behavior: auto; }
+  .pub-carousel__link img { transition: none; }
+  .pub-carousel__link:hover img,
+  .pub-carousel__link:focus-visible img { transform: none; }
+}
+</style>
+
+<script>
+(function () {
+  document.querySelectorAll('.pub-carousel').forEach(function (carousel) {
+    var track = carousel.querySelector('.pub-carousel__track');
+    var prev = carousel.querySelector('.pub-carousel__btn--prev');
+    var next = carousel.querySelector('.pub-carousel__btn--next');
+    function update() {
+      var maxScroll = track.scrollWidth - track.clientWidth - 2;
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= maxScroll;
+    }
+    function step(direction) {
+      track.scrollBy({ left: direction * track.clientWidth * 0.8 });
+    }
+    prev.addEventListener('click', function () { step(-1); });
+    next.addEventListener('click', function () { step(1); });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+})();
+</script>
+{% endif %}
