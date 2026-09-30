@@ -36,12 +36,14 @@ Work experience
 * 2010-2015: Paediatric and intensive care nurse
   * Paediatric intermediate and intensive care units, Woman-Mother-Child Department, Lausanne University Hospital, CH
   
-Major achievements (FNS)
+Major achievements
 ======
-* Achievement 1
+## 1. Doctoral research: The OCTO-Plus intervention development and feasibility 
+
 As part of my doctoral research at IUFRS, University of Lausanne, I led the development and feasibility
 testing of OCTO-Plus, a family-centred support intervention for children with chronic critical illness (CCI)
 in paediatric critical care.
+
 Families of CCI children face sustained distress and disrupted functioning, yet care remains organised
 around the acute episode, leaving their ongoing burden without preventive support. Using the Calgary
 Family Models and the updated MRC framework, I conducted four studies. A context analysis showed
@@ -52,16 +54,21 @@ their clarity and acceptability. A HCP feasibility evaluation found the interven
 relevant, with HCPs reporting greater confidence and accordence with personal values despite time
 constraints. A pilot study showed reduced parental stress and meaningful improvements in family
 functioning, with no harm observed.
+
 Rather than a single, temporary role, I built delivery capacity across the existing team, training
 interventionists while sensitising the wider unit, so change would outlast any one person – supporting
 the premise that strengthening family functioning reduces the burden of a chronically critically ill child.
-* Achievement 2
+
+## 2. Presidency of the Swiss Society of Intensive Care Medicine
+
 I served as executive president of the Swiss Society of Intensive Care Medicine (SGI-SSMI), the
 national interprofessional society for physicians and intensive care nurses, a member of the FMH and
 the Swiss Federation of Specialities, responsible for specialist training, certification, quality assurance,
 research promotion and health-policy representation of intensive care medicine in Switzerland.
+
 I approached the presidency as a role of enabling others: creating the structures and connections
 through which colleagues could pursue research, shape policy, or implement change on their own units.
+
 I initiated a multi-year strategic process ("Profil 2030"), structured around working groups each led by a
 different board member and given ownership of a defined strand – such as certification and quality
 benchmarking, or transitioning interest groups into properly mandated commissions – while I
