@@ -1,13 +1,13 @@
 ---
-title: "Paper Title Number 5, with math $$E=mc^2$$"
+title: "Development and implementation of the OCTO-Plus training program - Engineering education"
 collection: publications
 category: posters
-permalink: /publication/2024-02-17-paper-title-number-4
+permalink: /publication/2023_publication_3-octoplus_feasibility_poster_img
 excerpt: 'This paper is about a famous math equation, $$E=mc^2$$'
-date: 2024-02-17
-venue: 'GitHub Journal of Bugs'
+date: 2026-09-26
+venue: 'WFPICCS meeting 2026'
 paperurl: 'https://academicpages.github.io/files/paper3.pdf'
-citation: 'Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>GitHub Journal of Bugs</i>. 1(3).'
+citation: 'Marston, M., Perez, MH., & Ramelet, AS. (2026, September). <i>Development and implementation of the OCTO-Plus training program.</i> Poster presented at 13th World Congress of the World Federation of Pediatric Intensive & Critical Care Societies (WFPICCS), Melbourne, Australia. (26-30.09.2026)'
 ---
 
-Using [MathJax](https://www.mathjax.org/) in the description is supported - $$E=mc^2$$ - however, the use must be mindful that the default delimiters are `$$...$$` and `\\[...\\]` which differs from the `$...$` that is typically expected.
+![Graphical abstract](/images/publications/2023_publication_4-octoplus_training_poster_img.jpg)
