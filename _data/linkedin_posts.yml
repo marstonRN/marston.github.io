@@ -1,0 +1,15 @@
+# LinkedIn posts embedded on the Events page (the first two are shown).
+# How to get the values: on LinkedIn, open your post, click the "..." menu,
+# choose "Embed this post", and copy from the code shown:
+#   embed_url = the address inside src="..."
+#   height    = the number inside height="..."
+# Put the newest post first. Remove the "#" at the start of the lines below
+# once you have filled them in.
+
+# - label: "Short description of post 1"
+#   embed_url: "https://www.linkedin.com/embed/feed/update/urn:li:share:0000000000000000000"
+#   height: 600
+
+# - label: "Short description of post 2"
+#   embed_url: "https://www.linkedin.com/embed/feed/update/urn:li:share:0000000000000000000"
+#   height: 600
