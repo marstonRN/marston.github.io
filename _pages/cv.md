@@ -9,14 +9,14 @@ redirect_from:
 
 {% include base_path %}
 
-* Past President of the Swiss Society of Intensive Care Medicine (SSMI)
-* Active member of the Swiss Society of Nursing Science (VfP/APSI)
-* Member of the International Family Nursing Association (IFNA)
-* Member of the European Society of Paediatric and Neonatal Intensive Care (ESPNIC)
+* Past President of the [Swiss Society of Intensive Care Medicine (SSMI)](https://sgi-ssmi.ch/de/)
+* Active member of the [Swiss Society of Nursing Science (VfP/APSI)](https://vfp-apsi.ch/fr/fachgremien/paediatrische-pflege/ueber-uns)
+* Member of the [International Family Nursing Association (IFNA)](https://internationalfamilynursing.org/)
+* Member of the [European Society of Paediatric and Neonatal Intensive Care (ESPNIC)](https://www.espnic.eu/)
 
 ## Past committments
 * Executive President of the SSMI
-* President of the Association des étudiantes et étudiants de La Source (ADES)
+* President of the [Association des étudiantes et étudiants de La Source (ADES)](https://www.ecolelasource.ch/fr/campus/assoc-etudiants-ades)
 
 Education
 ======
