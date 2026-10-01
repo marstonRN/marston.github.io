@@ -10,7 +10,7 @@
 main:
   # Bio,CV, achievements (including testimonials from SSMI, Harald, ASR, AOB)
   # Include a LinkedIn stream if possible
-  - title: "About"
+  - title: "Bio"
     url: /cv/
     
   # Categorised by peer-reviewed, presentations, ...
