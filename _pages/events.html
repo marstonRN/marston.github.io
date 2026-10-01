@@ -1,0 +1,124 @@
+---
+layout: archive
+title: "Events"
+permalink: /events/
+author_profile: true
+---
+
+{% comment %}
+  Content comes from three data files:
+  _data/upcoming_events.yml  -> events of your choice (past events disappear automatically)
+  _data/ssmi_news.yml        -> SGI-SSMI news items (the two most recent are shown)
+  _data/linkedin_posts.yml   -> LinkedIn posts to embed (the first two are shown)
+{% endcomment %}
+
+{% assign now_s = site.time | date: "%s" | plus: 0 %}
+
+<h2>Upcoming events</h2><hr />
+{% assign events_sorted = site.data.upcoming_events | sort: "date" %}
+{% assign shown = 0 %}
+<div class="ev-grid">
+{% for ev in events_sorted %}
+{% assign ev_last = ev.end_date | default: ev.date %}
+{% assign ev_s = ev_last | date: "%s" | plus: 86400 %}
+{% if ev_s >= now_s and shown < 2 %}
+<article class="ev-card">
+<p class="ev-card__date">{{ ev.date | date: "%-d %B %Y" }}{% if ev.end_date %} – {{ ev.end_date | date: "%-d %B %Y" }}{% endif %}</p>
+<h3 class="ev-card__title"><a href="{{ ev.url }}">{{ ev.title }}</a></h3>
+{% if ev.place %}<p class="ev-card__meta">{{ ev.place }}</p>{% endif %}
+{% if ev.organiser %}<p class="ev-card__meta">{{ ev.organiser }}</p>{% endif %}
+{% if ev.note %}<p class="ev-card__note">{{ ev.note }}</p>{% endif %}
+<p class="ev-card__link"><a href="{{ ev.url }}">Event website &rarr;</a></p>
+</article>
+{% assign shown = shown | plus: 1 %}
+{% endif %}
+{% endfor %}
+</div>
+{% if shown == 0 %}<p>No upcoming events at the moment.</p>{% endif %}
+
+<h2>News from the Swiss Society of Intensive Care Medicine</h2><hr />
+{% assign news_sorted = site.data.ssmi_news | sort: "date" | reverse %}
+<div class="ev-grid">
+{% for item in news_sorted limit: 2 %}
+<article class="ev-card">
+<p class="ev-card__date">{{ item.date | date: "%-d %B %Y" }}</p>
+<h3 class="ev-card__title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
+{% if item.summary %}<p class="ev-card__note">{{ item.summary }}</p>{% endif %}
+<p class="ev-card__link"><a href="{{ item.url }}">Read on sgi-ssmi.ch &rarr;</a></p>
+</article>
+{% endfor %}
+</div>
+<p class="ev-more"><a href="https://sgi-ssmi.ch/de/news">All SGI-SSMI news &rarr;</a></p>
+
+<h2>Latest on LinkedIn</h2><hr />
+{% if site.data.linkedin_posts and site.data.linkedin_posts.size > 0 %}
+<div class="ev-grid ev-grid--posts">
+{% for post in site.data.linkedin_posts limit: 2 %}
+<div class="ev-post">
+<iframe src="{{ post.embed_url }}" height="{{ post.height | default: 600 }}" title="LinkedIn post: {{ post.label | default: 'post' | escape }}" loading="lazy" frameborder="0" allowfullscreen></iframe>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+<p class="ev-more"><a href="https://www.linkedin.com/in/ma-marston/">Follow me on LinkedIn &rarr;</a></p>
+
+<style>
+.ev-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin: 1rem 0 0.5rem;
+}
+.ev-grid--posts {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
+}
+.ev-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--global-border-color, #d9d9d9);
+  border-radius: 6px;
+}
+.ev-card p,
+.ev-card h3 { margin: 0; }
+.ev-card__date {
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--global-link-color, #2f6f7e);
+}
+.ev-card__title {
+  margin-top: 0.35rem !important;
+  font-size: 1.05em;
+  line-height: 1.35;
+}
+.ev-card__title a { text-decoration: none; }
+.ev-card__meta {
+  margin-top: 0.3rem !important;
+  font-size: 0.85em;
+  color: var(--global-text-color-light, #6b6b6b);
+}
+.ev-card__note {
+  margin-top: 0.6rem !important;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+.ev-card__link {
+  margin-top: auto !important;
+  padding-top: 0.8rem;
+  font-size: 0.85em;
+}
+.ev-more {
+  font-size: 0.9em;
+  margin-bottom: 2.5em;
+}
+.ev-post iframe {
+  display: block;
+  width: 100%;
+  max-width: 504px;
+  border: 1px solid var(--global-border-color, #d9d9d9);
+  border-radius: 6px;
+  background: #fff;
+}
+</style>
