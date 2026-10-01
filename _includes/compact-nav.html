@@ -1,0 +1,127 @@
+{% comment %}
+  Compact navigation for narrow screens.
+  Below the breakpoint, only the site title stays in the header and every menu item
+  from _data/navigation.yml moves into a three-bar dropdown menu.
+  Usage: in _includes/masthead.html, add {% include compact-nav.html %} right after </nav>.
+  To change the breakpoint, edit the 640px value in the @media rule below.
+{% endcomment %}
+<div class="compact-nav">
+<button type="button" class="compact-nav__toggle" aria-expanded="false" aria-controls="compact-nav-list" aria-label="Open menu">
+<span class="compact-nav__icon" aria-hidden="true"></span>
+</button>
+<ul id="compact-nav-list" class="compact-nav__list" hidden>
+{% for link in site.data.navigation.main %}
+{% if link.url contains '://' %}{% assign nav_href = link.url %}{% else %}{% assign nav_href = link.url | relative_url %}{% endif %}
+<li><a href="{{ nav_href }}">{{ link.title }}</a></li>
+{% endfor %}
+</ul>
+</div>
+
+<style>
+.compact-nav { display: none; }
+
+@media (max-width: 640px) {
+  /* hide every header item except the site title, and the theme's own overflow menu */
+  #site-nav .visible-links > li:not(:first-child) { display: none !important; }
+  #site-nav > button,
+  #site-nav .hidden-links { display: none !important; }
+
+  .masthead__menu { position: relative; }
+  .compact-nav {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
+
+.compact-nav__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--global-text-color, #333);
+  cursor: pointer;
+}
+.compact-nav__toggle:focus-visible {
+  outline: 2px solid var(--global-link-color, #2f6f7e);
+  outline-offset: 2px;
+}
+.compact-nav__icon,
+.compact-nav__icon::before,
+.compact-nav__icon::after {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+}
+.compact-nav__icon { position: relative; }
+.compact-nav__icon::before,
+.compact-nav__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.compact-nav__icon::before { top: -7px; }
+.compact-nav__icon::after { top: 7px; }
+
+.compact-nav__list {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 20;
+  min-width: 12rem;
+  margin: 0;
+  padding: 0.5rem 0;
+  list-style: none;
+  background: var(--global-bg-color, #fff);
+  border: 1px solid var(--global-border-color, #d9d9d9);
+  border-radius: 4px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+.compact-nav__list li { margin: 0; }
+.compact-nav__list a {
+  display: block;
+  padding: 0.65rem 1.25rem;
+  color: var(--global-text-color, #333);
+  text-decoration: none;
+}
+.compact-nav__list a:hover,
+.compact-nav__list a:focus-visible {
+  background: var(--global-border-color, #f0f0f0);
+}
+</style>
+
+<script>
+(function () {
+  var nav = document.querySelector('.compact-nav');
+  if (!nav) return;
+  var toggle = nav.querySelector('.compact-nav__toggle');
+  var list = nav.querySelector('.compact-nav__list');
+
+  function setOpen(open) {
+    list.hidden = !open;
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  toggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    setOpen(list.hidden);
+  });
+  document.addEventListener('click', function (e) {
+    if (!nav.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !list.hidden) { setOpen(false); toggle.focus(); }
+  });
+  window.addEventListener('resize', function () { setOpen(false); });
+})();
+</script>
