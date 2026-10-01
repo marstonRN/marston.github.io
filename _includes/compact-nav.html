@@ -36,6 +36,16 @@
   }
 }
 
+.compact-nav { z-index: 30; }
+/* the theme's menu script may add a "hidden" class to any button inside the menu;
+   these rules keep the three-bar button visible whatever the script does */
+.compact-nav .compact-nav__toggle,
+.compact-nav .compact-nav__toggle.hidden {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+  
 .compact-nav__toggle {
   display: flex;
   align-items: center;
