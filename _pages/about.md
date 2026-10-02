@@ -10,18 +10,27 @@ redirect_from:
 <div class="page-banner">
 <img class="page-banner__image" src="{{ '/images/banner_1.jpg' | relative_url }}" alt="">
 <div class="page-banner__logo">
-<img src="{{ '/images/logo.png' | relative_url }}" alt="Marston M logo">
+<img src="{{ '/images/marmot_logo_1_2.png' | relative_url }}" alt="Marston M logo">
 </div>
 </div>
 
 <style>
+/* heading just above the banner, without the underline (this page only) */
+.page__title,
+.page__content > h1:first-child,
+.page__content > h2:first-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0.4em;
+}
 .page-banner {
   --banner-gap: clamp(10px, 2.5vw, 20px);
-  --banner-h: clamp(119px, 18.7vw, 204px); /* 85% of the original height */
-  --logo-crop: 0.84; /* share of the original circle kept: lower = thinner white ring */
+  --banner-h: clamp(119px, 18.7vw, 204px);
+  --logo-size: calc(var(--banner-h) * 0.7);  /* size of the marmot drawing */
+  --logo-ring: 1.32;                          /* circle size relative to the drawing */
   position: relative;
   height: var(--banner-h);
-  margin-top: calc(var(--banner-gap) + 0.5em);
+  margin-top: 0;
   margin-bottom: 1.5em;
 }
 .page-banner__image {
@@ -33,24 +42,22 @@ redirect_from:
 }
 .page-banner__logo {
   position: absolute;
+  z-index: 2;
   top: calc(var(--banner-gap) * -1);
   right: var(--banner-gap);
-  width: calc(var(--banner-h) * var(--logo-crop));
-  height: calc(var(--banner-h) * var(--logo-crop));
-  overflow: hidden;
+  width: calc(var(--logo-size) * var(--logo-ring));
+  height: calc(var(--logo-size) * var(--logo-ring));
+  display: grid;
+  place-items: center;
   border-radius: 50%;
-  background: var(--global-bg-color, #fff);
+  background: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
 }
 .page-banner__logo img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: var(--banner-h);
-  height: var(--banner-h);
+  width: var(--logo-size);
+  height: var(--logo-size);
   max-width: none;
   margin: 0;
-  transform: translate(-50%, -50%);
 }
 </style>
 
