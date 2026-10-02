@@ -9,26 +9,23 @@ redirect_from:
 
 {% include base_path %}
 
+* **Full UAS Professor** at [La Source School of Nursing - UAS](https://www.ecolelasource.ch/fr/recherche-innovation/laboratoires-service-ri)<br>
+Head of the [Education and Research Lab on Child and Family Health](https://www.ecolelasource.ch/en/research-innovation/laboratories-ri/ler-child-and-family-health)
+{: .notice--primary}
 * Past President of the [Swiss Society of Intensive Care Medicine (SSMI)](https://sgi-ssmi.ch/de/)
 * Active member of the [Swiss Society of Nursing Science (VfP/APSI)](https://vfp-apsi.ch/fr/fachgremien/paediatrische-pflege/ueber-uns)
 * Member of the [International Family Nursing Association (IFNA)](https://internationalfamilynursing.org/)
 * Member of the [European Society of Paediatric and Neonatal Intensive Care (ESPNIC)](https://www.espnic.eu/)
 
 ## Past committments
-* Executive President of the SSMI
+* Executive President of the [SSMI](https://sgi-ssmi.ch/de/)
 * President of the [Association des étudiantes et étudiants de La Source (ADES)](https://www.ecolelasource.ch/fr/campus/assoc-etudiants-ades)
-
-Education
-======
-* Ph.D in Nursing Science, Paediatric critical care and implemenation science, Institute of Higher Education and Research in Healthcare, Lausanne, CH, 2026
-* M.Sc. in Nursing Science, Research Focus (Cum laude), Institute of Nursing Science, Basel, CH, 2018
-* B.Sc. in Nursing Science, Nursing School La Source, Lausanne, CH, 2010
 
 Work experience
 ======
-* Current: Full UAS professor
+* Current: Full UAS Professor (100%)
   * Head of the Education and Research Lab on Child and Family Health
-  * Nursing School La Source, Lausanne, CH
+  * La Source School of Nursing, Lausanne, CH
 
 * 2022-2024: Research assistant (50%)
   * Institute of Higher Education and Research in Healthcare, Lausanne, CH
@@ -45,6 +42,12 @@ Work experience
 * 2010-2015: Paediatric and intensive care nurse
   * Paediatric intermediate and intensive care units, Woman-Mother-Child Department, Lausanne University Hospital, CH
   
+Education
+======
+* Ph.D in Nursing Science, Paediatric critical care and implemenation science, Institute of Higher Education and Research in Healthcare, Lausanne, CH, 2026
+* M.Sc. in Nursing Science, Research Focus (Cum laude), Institute of Nursing Science, Basel, CH, 2018
+* B.Sc. in Nursing Science, Nursing School La Source, Lausanne, CH, 2010
+
 Major achievements
 ======
 ## 1. Doctoral research: The OCTO-Plus intervention development and feasibility 
