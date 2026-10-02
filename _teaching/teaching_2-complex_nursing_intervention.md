@@ -3,6 +3,7 @@ title: "Complex Nursing Interventions"
 collection: teaching
 type: "Lecture - Master of Science"
 venue: "University of Lausanne (UNIL), Institute of Higher Education and Research in Healthcare"
+date: 2023-09-01
 period: "2023 to 2024"
 location: "Lausanne, Switzerland"
 ---
