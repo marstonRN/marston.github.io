@@ -10,7 +10,7 @@ redirect_from:
 <div class="page-banner">
 <img class="page-banner__image" src="{{ '/images/banner_1.jpg' | relative_url }}" alt="">
 <div class="page-banner__logo">
-<img src="{{ '/images/marmot_logo_1_2.png' | relative_url }}" alt="Marston M logo">
+<img src="{{ '/images/marmot_logo_1.png' | relative_url }}" alt="Marston M logo">
 </div>
 </div>
 
