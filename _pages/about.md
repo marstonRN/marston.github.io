@@ -17,7 +17,7 @@ redirect_from:
 <style>
 .page-banner {
   --banner-gap: clamp(10px, 2.5vw, 20px);
-  --banner-h: clamp(140px, 22vw, 240px);
+  --banner-h: clamp(119px, 18.7vw, 204px); /* 85% of the original height */
   --logo-crop: 0.84; /* share of the original circle kept: lower = thinner white ring */
   position: relative;
   height: var(--banner-h);
@@ -37,19 +37,20 @@ redirect_from:
   right: var(--banner-gap);
   width: calc(var(--banner-h) * var(--logo-crop));
   height: calc(var(--banner-h) * var(--logo-crop));
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   border-radius: 50%;
   background: var(--global-bg-color, #fff);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
 }
 .page-banner__logo img {
-  flex: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: var(--banner-h);
   height: var(--banner-h);
   max-width: none;
+  margin: 0;
+  transform: translate(-50%, -50%);
 }
 </style>
 
