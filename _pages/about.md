@@ -9,15 +9,20 @@ redirect_from:
 
 <div class="page-banner">
 <img class="page-banner__image" src="{{ '/images/banner_1.jpg' | relative_url }}" alt="">
-<img class="page-banner__logo" src="{{ '/images/marmot_logo_1.png' | relative_url }}" alt="Marston M logo">
+<div class="page-banner__logo">
+<img src="{{ '/images/logo.png' | relative_url }}" alt="Marston M logo">
+</div>
 </div>
 
 <style>
 .page-banner {
   --banner-gap: clamp(10px, 2.5vw, 20px);
+  --banner-h: clamp(140px, 22vw, 240px);
+  --logo-crop: 0.84; /* share of the original circle kept: lower = thinner white ring */
   position: relative;
-  height: clamp(140px, 22vw, 240px);
-  margin-bottom: calc(var(--banner-gap) + 1.5em);
+  height: var(--banner-h);
+  margin-top: calc(var(--banner-gap) + 0.5em);
+  margin-bottom: 1.5em;
 }
 .page-banner__image {
   display: block;
@@ -28,14 +33,23 @@ redirect_from:
 }
 .page-banner__logo {
   position: absolute;
-  top: var(--banner-gap);
+  top: calc(var(--banner-gap) * -1);
   right: var(--banner-gap);
-  height: 100%;
-  width: auto;
-  aspect-ratio: 1 / 1;
+  width: calc(var(--banner-h) * var(--logo-crop));
+  height: calc(var(--banner-h) * var(--logo-crop));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   border-radius: 50%;
   background: var(--global-bg-color, #fff);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+.page-banner__logo img {
+  flex: none;
+  width: var(--banner-h);
+  height: var(--banner-h);
+  max-width: none;
 }
 </style>
 
