@@ -109,13 +109,13 @@ supervising the transition of the postgraduate intensive care nursing qualificat
 diploma studies (Nachdiplomstudium) to the Advanced Federal Diploma of Higher Education (Höhere
 Fachprüfung) format.
 
+<!-- Exlcude section
 Publications
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
-<!-- Exlcude section
 Talks
 ======
   <ul>{% for post in site.talks reversed %}
