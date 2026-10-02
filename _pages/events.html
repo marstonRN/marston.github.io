@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Events"
+title: "Let's connect"
 permalink: /events/
 author_profile: true
 redirect_from:
@@ -17,7 +17,19 @@ redirect_from:
 
 {% assign now_s = site.time | date: "%s" | plus: 0 %}
 
-<h2>Upcoming events</h2><hr />
+<h2>Latest on LinkedIn</h2><hr />
+{% if site.data.linkedin_posts and site.data.linkedin_posts.size > 0 %}
+<div class="ev-grid ev-grid--posts">
+{% for post in site.data.linkedin_posts limit: 2 %}
+<div class="ev-post">
+<iframe src="{{ post.embed_url }}" height="{{ post.height | default: 600 }}" title="LinkedIn post: {{ post.label | default: 'post' | escape }}" loading="lazy" frameborder="0" allowfullscreen></iframe>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+<p class="ev-more"><a href="https://www.linkedin.com/in/ma-marston/">Follow me on LinkedIn &rarr;</a></p>
+
+<h1>Upcoming events</h1><hr />
 {% assign events_sorted = site.data.upcoming_events | sort: "date" %}
 {% assign shown = 0 %}
 <div class="ev-grid">
@@ -52,18 +64,6 @@ redirect_from:
 {% endfor %}
 </div>
 <p class="ev-more"><a href="https://sgi-ssmi.ch/de/news">All SGI-SSMI news &rarr;</a></p>
-
-<h2>Latest on LinkedIn</h2><hr />
-{% if site.data.linkedin_posts and site.data.linkedin_posts.size > 0 %}
-<div class="ev-grid ev-grid--posts">
-{% for post in site.data.linkedin_posts limit: 2 %}
-<div class="ev-post">
-<iframe src="{{ post.embed_url }}" height="{{ post.height | default: 600 }}" title="LinkedIn post: {{ post.label | default: 'post' | escape }}" loading="lazy" frameborder="0" allowfullscreen></iframe>
-</div>
-{% endfor %}
-</div>
-{% endif %}
-<p class="ev-more"><a href="https://www.linkedin.com/in/ma-marston/">Follow me on LinkedIn &rarr;</a></p>
 
 <style>
 .ev-grid {
