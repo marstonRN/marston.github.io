@@ -1,7 +1,7 @@
 ---
 title: "Family-Centred Care"
 collection: teaching
-type: "Master of Science course"
+type: "Lecture - Master of Science course"
 venue: "University of Lausanne (UNIL), Institute of Higher Education and Research in Healthcare"
 date: 2024 to 2026
 location: "Lausanne, Switzerland"
