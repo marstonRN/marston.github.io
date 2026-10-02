@@ -70,7 +70,7 @@ Education
 
 Major achievements
 ======
-## 1. Doctoral research: The OCTO-Plus intervention development and feasibility 
+## 1. The OCTO-Plus intervention development and feasibility 
 
 As part of my doctoral research at IUFRS, University of Lausanne, I led the development and feasibility
 testing of OCTO-Plus, a family-centred support intervention for children with chronic critical illness (CCI)
