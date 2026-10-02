@@ -41,12 +41,13 @@ redirect_from:
   border-radius: 6px;
 }
 .page-banner__logo {
+  --logo-d: calc(var(--logo-size) * var(--logo-ring)); /* circle diameter */
   position: absolute;
   z-index: 2;
-  top: calc(var(--banner-gap) * -1);
+  top: calc(var(--banner-gap) * -1 - (var(--banner-h) - var(--logo-d) + var(--banner-gap)) / 2);
   right: var(--banner-gap);
-  width: calc(var(--logo-size) * var(--logo-ring));
-  height: calc(var(--logo-size) * var(--logo-ring));
+  width: var(--logo-d);
+  height: var(--logo-d);
   display: grid;
   place-items: center;
   border-radius: 50%;
