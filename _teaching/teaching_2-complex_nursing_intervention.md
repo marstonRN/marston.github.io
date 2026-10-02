@@ -1,8 +1,7 @@
 ---
-title: "Teaching experience 2"
+title: "Complex Nursing Interventions"
 collection: teaching
-type: "Workshop"
-permalink: /teaching/2015-spring-teaching-1
+type: "Lecture"
 venue: "University 1, Department"
 date: 2015-01-01
 location: "City, Country"
