@@ -3,7 +3,7 @@ title: "Family-Centred Care"
 collection: teaching
 type: "Lecture - Intensive Care Specialisation"
 venue: "Berner Bildungszentrum Pflege AG"
-date: 2021 to 2024
+period: "2021 to 2024"
 location: "Bern, Switzerland"
 ---
 
