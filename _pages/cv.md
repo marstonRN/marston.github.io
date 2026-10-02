@@ -11,7 +11,7 @@ redirect_from:
 
 * **Full UAS Professor** at [La Source School of Nursing - UAS](https://www.ecolelasource.ch/fr/recherche-innovation/laboratoires-service-ri)<br>
 Head of the [Education and Research Lab on Child and Family Health](https://www.ecolelasource.ch/en/research-innovation/laboratories-ri/ler-child-and-family-health)
-{: .notice--primary}
+{: .cv-current}
 * Past President of the [Swiss Society of Intensive Care Medicine (SSMI)](https://sgi-ssmi.ch/de/)
 * Active member of the [Swiss Society of Nursing Science (VfP/APSI)](https://vfp-apsi.ch/fr/fachgremien/paediatrische-pflege/ueber-uns)
 * Member of the [International Family Nursing Association (IFNA)](https://internationalfamilynursing.org/)
@@ -108,6 +108,16 @@ Teaching
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
+<style>
+.cv-current {
+  background: #eef3f5;
+  background: color-mix(in srgb, var(--global-link-color, #2f6f7e) 10%, transparent);
+  padding: 0.5em 0.75em;
+  margin-left: -0.75em;
+  margin-right: -0.75em;
+  border-radius: 4px;
+}
+</style>
 Service and leadership
 ======
 * Currently signed in to 43 different slack teams
