@@ -27,7 +27,7 @@ Head of the [Education and Research Lab on Child and Family Health](https://www.
   right: -0.75em;
   z-index: -1;
   background: #eef3f5;
-  background: color-mix(in srgb, var(--global-link-color, #2f6f7e) 15%, transparent);
+  background: color-mix(in srgb, var(--global-link-color, #2f6f7e) 10%, transparent);
   border-radius: 4px;
 }
 </style>
