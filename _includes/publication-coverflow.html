@@ -8,7 +8,7 @@
 {% if flow_pubs.size > 0 %}
 <section class="pub-flow" aria-roledescription="carousel" aria-label="Publications by title page">
 <div class="pub-flow__stage">
-{% for pub in flow_pubs %}
+{% for pub in flow_pubs limit: 5 %}
 <a class="pub-flow__item" href="{{ pub.url | relative_url }}" data-title="{{ pub.title | escape }}" data-year="{{ pub.date | date: '%Y' }}">
 <img src="{{ pub.cover | relative_url }}" alt="Title page of {{ pub.title | escape }}" loading="lazy" width="210" height="297">
 </a>
