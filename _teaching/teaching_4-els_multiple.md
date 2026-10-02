@@ -3,7 +3,8 @@ title: "Paediatrics, family-centred care, research, and ethics and communication
 collection: teaching
 type: "Lecture, seminar, workshop - Bachelor of Science course"
 venue: "University of Applied Sciences (UAS) - Western Switzerland, Institut et Haute École de Santé La Source"
-date: 2024 to current
+date: 2024-09-01
+period: "2024 to current"
 location: "Lausanne, Switzerland"
 ---
 
