@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-* {: .cv-current} **Full UAS Professor** at [La Source School of Nursing - UAS](https://www.ecolelasource.ch/fr/recherche-innovation/laboratoires-service-ri)<br>
+{: .cv-current} **Full UAS Professor** at [La Source School of Nursing - UAS](https://www.ecolelasource.ch/fr/recherche-innovation/laboratoires-service-ri)<br>
 Head of the [Education and Research Lab on Child and Family Health](https://www.ecolelasource.ch/en/research-innovation/laboratories-ri/ler-child-and-family-health)
 
 <style>
