@@ -7,6 +7,38 @@ redirect_from:
   - /about.html
 ---
 
+<div class="page-banner">
+<img class="page-banner__image" src="{{ '/images/banner_1.jpg' | relative_url }}" alt="">
+<img class="page-banner__logo" src="{{ '/images/marmot_logo_1.png' | relative_url }}" alt="Marston M logo">
+</div>
+
+<style>
+.page-banner {
+  --banner-gap: clamp(10px, 2.5vw, 20px);
+  position: relative;
+  height: clamp(140px, 22vw, 240px);
+  margin-bottom: calc(var(--banner-gap) + 1.5em);
+}
+.page-banner__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.page-banner__logo {
+  position: absolute;
+  top: var(--banner-gap);
+  right: var(--banner-gap);
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: var(--global-bg-color, #fff);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+</style>
+
 I am a paediatric intensive care nurse by training and an Associate Professor at the UAS La Source School of Nursing in Lausanne, where I lead research on child and family health. I have always been passionate about research and how it can advance care, and this has been the main driving force behind my career. Before moving into academia, I spent many years at the bedside in the paediatric intermediate and intensive care units of Lausanne University Hospital (CHUV) and the University Children's Hospital Basel (UKBB), later also working as a scientific collaborator. I tend to look at situations as a whole, to connect people and ideas, and to look for what makes change last.
 
 Throughout my clinical years, one question stayed with me: what do families go through when their child is critically ill, and how can we, as healthcare professionals, best support them? This question shaped my academic path, from a Certificate of Advanced Studies (CAS) in Child and Family Health in the Hospital Setting to a Master's degree and a PhD in Nursing Science, and it remains at the heart of my work today. My research explores how families can be integrated into care, so that supporting the family becomes a recognised and structured part of care in paediatrics, and more broadly in the community. An important part of this work concerns implementation: how such changes can take root in practice and, more specifically, how to educate and train healthcare professionals at multiple levels to adopt a different perspective.
