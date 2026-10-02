@@ -9,16 +9,15 @@ redirect_from:
 
 {% include base_path %}
 
-* **Full UAS Professor** at [La Source School of Nursing - UAS](https://www.ecolelasource.ch/fr/recherche-innovation/laboratoires-service-ri)<br>
+* {: .cv-current} **Full UAS Professor** at [La Source School of Nursing - UAS](https://www.ecolelasource.ch/fr/recherche-innovation/laboratoires-service-ri)<br>
 Head of the [Education and Research Lab on Child and Family Health](https://www.ecolelasource.ch/en/research-innovation/laboratories-ri/ler-child-and-family-health)
-{: .cv-current}
 
 <style>
 .cv-current {
   background: #eef3f5;
-  background: color-mix(in srgb, var(--global-link-color, #2f6f7e) 50%, transparent);
-  padding: 0.5em 0.75em;
-  margin-left: -0.75em;
+  background: color-mix(in srgb, var(--global-link-color, #2f6f7e) 15%, transparent);
+  padding: 0.5em 0.75em 0.5em 1.75em;
+  margin-left: -1.75em;
   margin-right: -0.75em;
   border-radius: 4px;
 }
