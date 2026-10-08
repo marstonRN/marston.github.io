@@ -4,8 +4,8 @@ collection: publications
 category: manuscripts
 permalink: /publication/2026_publication_8-octoplus_development_AUCC
 excerpt: "Designing a co-developed multicomponent intervention to support families of CCI children hospitalised in PCC. OCTO-Plus' 3 components: (1) therapeutic family consultations, (2) patient and family diaries, and (3) interprofessional handovers, are supported by a practical toolbox for trained nurses and physicians. Therapeutic consultations are delivered from day 8, repeated weekly until discharge, and one month post-discharge, while diaries and handovers are embedded within existing communication pathways. By integrating existing PCC resources and routines, OCTO-Plus provides an implementation-ready approach to strengthen family functioning, communication, and continuity of care for families of critically ill children."
-date: 2026-01-31
-venue: 'Nursing in Critical Care'
+date: 2026-10-08
+venue: 'Australian Critical Care'
 paperurl: '[https://doi.org/10.1016/j.aucc.2026.101692](https://doi.org/10.1016/j.aucc.2026.101692)'
 citation: 'Marston, M., Perez, MH., & Ramelet, AS. (2026). Co-development of an intervention to support families of chronic critically ill children in paediatric critical care—The OCTO-Plus intervention. <i>Australian Critical Care, 39</i>(6). [https://doi.org/110.1016/j.aucc.2026.101692](https://doi.org/10.1016/j.aucc.2026.101692).'
 cover: /images/publications/2026_publication_8-octoplus_development_AUCC.jpg
