@@ -6,10 +6,6 @@
 # Put the newest post first. Remove the "#" at the start of the lines below
 # once you have filled them in.
 
-# - label: "Short description of post 1"
-#   embed_url: "https://www.linkedin.com/embed/feed/update/urn:li:share:0000000000000000000"
-#   height: 600
-
-# - label: "Short description of post 2"
-#   embed_url: "https://www.linkedin.com/embed/feed/update/urn:li:share:0000000000000000000"
-#   height: 600
+- label: "NEW publication - Co-development of the OCTO-Plus intervention to support families"
+  embed_url: "https://www.linkedin.com/embed/feed/update/urn:li:share:7513815772461428736"
+  height: 1302
