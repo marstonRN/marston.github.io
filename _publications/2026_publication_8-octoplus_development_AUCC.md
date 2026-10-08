@@ -1,5 +1,5 @@
 ---
-title: "The OCTO-Plus intervention to support families of chronically critically ill children in paediatric critical care: A pilot study"
+title: "Co-development of an intervention to support families of chronic critically ill children in paediatric critical care—The OCTO-Plus intervention"
 collection: publications
 category: manuscripts
 permalink: /publication/2026_publication_8-octoplus_development_AUCC
