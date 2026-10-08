@@ -7,7 +7,7 @@ excerpt: 'This mixed-methods study tested the feasibility of OCTO-Plus, a multi-
 date: 2026-09-26
 venue: '13th World Congress of the World Federation of Pediatric Intensive & Critical Care Societies (WFPICCS)'
 paperurl: 'https://www.wfpiccs2026intensivecareasm.com/program/'
-citation: 'Marston, M., Perez, MH., & Ramelet, AS. (2026, September). Development and implementation of the OCTO-Plus training program. Poster presented at 13th World Congress of the World Federation of Pediatric Intensive & Critical Care Societies (WFPICCS), Melbourne, Australia. (26-30.09.2026)'
+citation: 'Marston, M., Perez, MH., & Ramelet, AS. (2026, September). Development and implementation of the OCTO-Plus training program. Poster presented at 13th World Congress of the World Federation of Pediatric Intensive & Critical Care Societies (WFPICCS), Melbourne, Australia.'
 ---
 
 ![Graphical abstract](/images/publications/2023_publication_3-octoplus_feasibility_poster_img.jpg)
