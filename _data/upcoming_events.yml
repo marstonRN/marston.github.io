@@ -3,14 +3,8 @@
 # at the next site build. Dates are written YYYY-MM-DD.
 # Optional fields: end_date (multi-day events), organiser, note (e.g. your role).
 
-- title: "6. Swiss IMC Symposium 2027"
-  date: 2027-01-22
-  place: "Inselspital Bern"
-  organiser: "Swiss Society of Intensive Care Medicine (SGI-SSMI)"
-  url: "https://imc-symposium2027.congress-imk.ch/frontend/index.php"
-
-- title: "2. SGI Benchmark- & Qualitätssymposium 2027"
-  date: 2027-03-11
-  place: "Inselspital Bern"
-  organiser: "Swiss Society of Intensive Care Medicine (SGI-SSMI)"
-  url: "https://sgi-ssmi-symposium2027.congress-imk.ch/frontend/index.php"
+- title: "Familles et polyhandicap : Plus forts tous ensemble"
+  date: 2027-02-04
+  place: "Université de Fribourg"
+  note: "An interactive day open to professionals and families alike, on how we can best support families living with polyhandicap. I am delighted to take part."
+  url: "https://lnkd.in/emDJ47MK"
