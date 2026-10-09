@@ -9,8 +9,9 @@ redirect_from:
 ---
 
 {% comment %}
-  Content comes from three data files:
+  Content comes from four data files:
   _data/upcoming_events.yml  -> events of your choice (past events disappear automatically)
+  _data/ssmi_events.yml      -> SGI-SSMI events, shown in the SGI-SSMI section (past events disappear automatically)
   _data/ssmi_news.yml        -> SGI-SSMI news items (the two most recent are shown)
   _data/linkedin_posts.yml   -> LinkedIn posts to embed (the first two are shown)
 {% endcomment %}
@@ -29,7 +30,7 @@ redirect_from:
 {% endif %}
 <p class="ev-more"><a href="https://www.linkedin.com/in/ma-marston/">Follow me on LinkedIn &rarr;</a></p>
 
-<h1>Upcoming events</h1><hr />
+<h2>Upcoming events</h2><hr />
 {% assign events_sorted = site.data.upcoming_events | sort: "date" %}
 {% assign shown = 0 %}
 <div class="ev-grid">
@@ -52,6 +53,24 @@ redirect_from:
 {% if shown == 0 %}<p>No upcoming events at the moment.</p>{% endif %}
 
 <h2>News from the Swiss Society of Intensive Care Medicine</h2><hr />
+{% assign ssmi_events_sorted = site.data.ssmi_events | sort: "date" %}
+{% assign ssmi_shown = 0 %}
+<div class="ev-grid">
+{% for ev in ssmi_events_sorted %}
+{% assign ev_last = ev.end_date | default: ev.date %}
+{% assign ev_s = ev_last | date: "%s" | plus: 86400 %}
+{% if ev_s >= now_s and ssmi_shown < 2 %}
+<article class="ev-card">
+<p class="ev-card__date">{{ ev.date | date: "%-d %B %Y" }}{% if ev.end_date %} – {{ ev.end_date | date: "%-d %B %Y" }}{% endif %}</p>
+<h3 class="ev-card__title"><a href="{{ ev.url }}">{{ ev.title }}</a></h3>
+{% if ev.place %}<p class="ev-card__meta">{{ ev.place }}</p>{% endif %}
+{% if ev.note %}<p class="ev-card__note">{{ ev.note }}</p>{% endif %}
+<p class="ev-card__link"><a href="{{ ev.url }}">Event website &rarr;</a></p>
+</article>
+{% assign ssmi_shown = ssmi_shown | plus: 1 %}
+{% endif %}
+{% endfor %}
+</div>
 {% assign news_sorted = site.data.ssmi_news | sort: "date" | reverse %}
 <div class="ev-grid">
 {% for item in news_sorted limit: 2 %}
