@@ -94,5 +94,5 @@ jobs:
           if gh pr view "$BRANCH" >/dev/null 2>&1; then
             gh pr edit "$BRANCH" --body-file body.md   # re-run: the open pull request now shows the new draft
           else
-            gh pr create --base master --head "$BRANCH" --title "Newsletter $DATE" --body-file body.md
+            gh pr create --base master --head "$BRANCH" --title "Newsletter $DATE" --body-file body.md --assignee marstonRN
           fi
