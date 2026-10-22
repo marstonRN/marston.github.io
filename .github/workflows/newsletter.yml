@@ -39,7 +39,8 @@ jobs:
         run: |
           TODAY=$(date -u +%Y-%m-%d)
           echo "TODAY=$TODAY" >> "$GITHUB_ENV"
-          copilot --no-ask-user --allow-all -p "Today is $TODAY. Write this week's newsletter issue by following .github/newsletter/instructions.md exactly. The new PubMed records are in pubmed.md. Fetch the news sources listed in the instructions. Write only one file: _newsletter/$TODAY.md. Do not change any other file."
+          rm -f "_newsletter/$TODAY.md"   # a re-run must write a fresh issue, not keep the one already published today
+          copilot --no-ask-user --allow-all -p "Today is $TODAY. Write this week's newsletter issue by following .github/newsletter/instructions.md exactly. The instructions file is the only reference for structure, title and style; do not copy the format of earlier issues in _newsletter. The new PubMed records are in pubmed.md. Fetch the news sources listed in the instructions. Write only one file: _newsletter/$TODAY.md. Do not change any other file."
           test -s "_newsletter/$TODAY.md" || { echo "Copilot did not write _newsletter/$TODAY.md"; exit 1; }
           cp pubmed.md "pubmed-$TODAY.md"
 
@@ -91,7 +92,7 @@ jobs:
             echo
             echo "</details>"
           } > body.md
-          if gh pr view "$BRANCH" >/dev/null 2>&1; then
+          if [ "$(gh pr list --head "$BRANCH" --state open --json number --jq length)" != "0" ]; then
             gh pr edit "$BRANCH" --body-file body.md   # re-run: the open pull request now shows the new draft
           else
             gh pr create --base master --head "$BRANCH" --title "Newsletter $DATE" --body-file body.md --assignee marstonRN
