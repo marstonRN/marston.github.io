@@ -1,0 +1,27 @@
+---
+layout: archive
+title: "Weekly newsletter"
+permalink: /newsletter/
+author_profile: true
+---
+
+<p>Each week: Swiss health policy, nursing and healthcare news from Switzerland and the world, and new research on family-centred care in paediatric critical care. Every item links to its source.</p>
+
+{% assign issues = site.newsletter | sort: "date" | reverse %}
+{% for issue in issues %}
+<article class="nl-item">
+<p class="nl-item__date">{{ issue.date | date: "%-d %B %Y" }}</p>
+<h3 class="nl-item__title"><a href="{{ issue.url }}">{{ issue.title }}</a></h3>
+{% if issue.excerpt %}<p class="nl-item__lead">{{ issue.excerpt | strip_html }}</p>{% endif %}
+</article>
+{% endfor %}
+{% if issues.size == 0 %}<p>The first issue is on its way.</p>{% endif %}
+
+<style>
+.nl-item { padding: 0.9rem 0; border-bottom: 1px solid var(--global-border-color, #d9d9d9); }
+.nl-item p, .nl-item h3 { margin: 0; }
+.nl-item__date { font-size: 0.8em; font-weight: 600; color: var(--global-link-color, #2f6f7e); }
+.nl-item__title { margin-top: 0.3rem !important; font-size: 1.05em; }
+.nl-item__title a { text-decoration: none; }
+.nl-item__lead { margin-top: 0.4rem !important; font-size: 0.9em; line-height: 1.5; }
+</style>
