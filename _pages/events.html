@@ -23,7 +23,7 @@ redirect_from:
 {% assign nl_latest = site.newsletter | sort: "date" | reverse | first %}
 {% if nl_latest %}
 <div class="nl-issue">
-<p class="ev-card__date">Weekly news flash | {{ nl_latest.date | date: "%-d %B %Y" }}</p>
+<p class="ev-card__date">{{ nl_latest.date | date: "%-d %B %Y" }}</p>
 <h2 class="nl-issue__title">{{ nl_latest.title }}</h2>
 {{ nl_latest.content | replace: "<h2", "<h3" | replace: "</h2>", "</h3>" }}
 </div>
@@ -88,22 +88,41 @@ redirect_from:
   font-size: 1.2em;
 }
 .nl-issue h3 { font-size: 1.05em; margin-top: 1.4em; }
-/* Headlines block: blue background, like the current position on the Bio page */
+/* Headlines block: blue background (like the current position on the Bio page), two columns, no bullets */
 .nl-issue h3:first-of-type,
-.nl-issue h3:first-of-type + ul {
+.nl-issue h3:first-of-type + table {
   background: color-mix(in srgb, var(--global-link-color, #2f6f7e) 15%, transparent);
-  margin-left: 0;
-  margin-right: 0;
 }
 .nl-issue h3:first-of-type {
   margin: 0.8em 0 0;
   padding: 0.8em 1em 0.3em;
   border-radius: 6px 6px 0 0;
 }
-.nl-issue h3:first-of-type + ul {
-  margin-top: 0;
-  padding: 0.2em 1em 0.8em 2.2em;
+.nl-issue h3:first-of-type + table {
+  display: table;
+  width: 100%;
+  margin: 0 0 1em;
+  padding: 0 0.6em 0.6em;
+  border: none;
+  border-collapse: separate;
+  border-spacing: 0;
   border-radius: 0 0 6px 6px;
+  font-size: 0.9em;
+}
+.nl-issue h3:first-of-type + table thead { display: none; }
+.nl-issue h3:first-of-type + table tr,
+.nl-issue h3:first-of-type + table td {
+  background: transparent;
+  border: none;
+}
+.nl-issue h3:first-of-type + table td {
+  padding: 0.35em 0.4em;
+  vertical-align: top;
+  line-height: 1.45;
+}
+.nl-issue h3:first-of-type + table td:first-child {
+  width: 30%;
+  padding-right: 1.2em;
 }
 .ev-grid {
   display: grid;
