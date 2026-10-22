@@ -45,7 +45,7 @@ Any text containing an apostrophe goes in double quotes. The title is a real hea
 
 ## Structure (max. about 1,000 words, two A4 pages)
 
-1. `## Headlines`: one bullet per section below, each the key sentence of that section: the section name in bold, then ` | `, then the sentence. Example: `- **Swiss health policy** | The Federal Council ...`
+1. `## Headlines`: a two-column table with one row per section below: the section name in bold, then the key sentence of that section. No bullets, no header row, no blank lines between rows. Example rows: `| **Swiss health policy** | The Federal Council ... |` and `| **New research** | New studies ... |`
 2. `## Swiss health policy`: Federal Council, FOPH (BAG/OFSP), parliament, cantons, votes, tariffs (e.g. TARDOC), nursing initiative implementation. 2 to 4 items.
 3. `## Nursing and healthcare in Switzerland`: SBK-ASI, SGI-SSMI, hospitals, H+, universities, Obsan, Swiss media. 2 to 4 items.
 4. `## Nursing and healthcare worldwide`: WHO, ICN, major journals and international news. 2 to 4 items.
