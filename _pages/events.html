@@ -138,7 +138,8 @@ redirect_from:
 .nl-issue h3:first-of-type + table th:first-child,
 .nl-issue h3:first-of-type + ul td:first-child,
 .nl-issue h3:first-of-type + ul th:first-child {
-  width: 24%;
+  box-sizing: border-box;
+  width: max(24%, 7.4em);   /* on phones: just wider than "Switzerland" */
   padding-right: 1.2em;
   font-weight: 600;
 }
