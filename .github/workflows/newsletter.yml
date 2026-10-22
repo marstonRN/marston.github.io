@@ -1,0 +1,94 @@
+# Weekly newsletter: GitHub Copilot drafts an issue, then a pull request is opened for review.
+# Needs a repository secret COPILOT_TOKEN (fine-grained token with the "Copilot Requests" permission)
+# and Settings > Actions > General > "Allow GitHub Actions to create and approve pull requests".
+
+name: Weekly newsletter
+
+on:
+  schedule:
+    - cron: "0 5 * * 1"   # Mondays 05:00 UTC (06:00 or 07:00 Swiss time)
+  workflow_dispatch:
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run the PubMed searches
+        run: python .github/newsletter/fetch_pubmed.py .github/newsletter/instructions.md pubmed.md 7
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Copilot CLI
+        run: npm install -g @github/copilot
+
+      - name: Draft the issue with Copilot
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_TOKEN }}
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          echo "TODAY=$TODAY" >> "$GITHUB_ENV"
+          copilot --no-ask-user --allow-all -p "Today is $TODAY. Write this week's newsletter issue by following .github/newsletter/instructions.md exactly. The new PubMed records are in pubmed.md. Fetch the news sources listed in the instructions. Write only one file: _newsletter/$TODAY.md. Do not change any other file."
+          test -s "_newsletter/$TODAY.md" || { echo "Copilot did not write _newsletter/$TODAY.md"; exit 1; }
+          cp pubmed.md "pubmed-$TODAY.md"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: newsletter
+          path: |
+            _newsletter/${{ env.TODAY }}.md
+            pubmed-${{ env.TODAY }}.md
+
+  pull-request:
+    needs: draft
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: newsletter
+          path: drafted
+
+      - name: Open the pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE=$(ls drafted/_newsletter/*.md | head -1)
+          DATE=$(basename "$ISSUE" .md)
+          BRANCH="newsletter/$DATE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          mkdir -p _newsletter
+          cp "$ISSUE" "_newsletter/$DATE.md"
+          git add "_newsletter/$DATE.md"
+          git commit -m "Newsletter $DATE"
+          git push -u origin "$BRANCH"
+          {
+            echo "Draft newsletter for $DATE, written by GitHub Copilot."
+            echo
+            echo "Please check every item against its link before merging. Merging publishes it on marston.ch."
+            echo "To change something, open the file in this pull request and edit it before merging."
+            echo
+            echo "<details><summary>PubMed records used</summary>"
+            echo
+            head -c 50000 drafted/pubmed-*.md
+            echo
+            echo "</details>"
+          } > body.md
+          gh pr create --base master --head "$BRANCH" --title "Newsletter $DATE" --body-file body.md
