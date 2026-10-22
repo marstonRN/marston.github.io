@@ -7,7 +7,7 @@ excerpt: "Designing a co-developed multicomponent intervention to support famili
 date: 2026-10-08
 venue: 'Australian Critical Care'
 paperurl: '[https://doi.org/10.1016/j.aucc.2026.101692](https://doi.org/10.1016/j.aucc.2026.101692)'
-citation: 'Marston, M., Perez, MH., & Ramelet, AS. (2026). Co-development of an intervention to support families of chronic critically ill children in paediatric critical care—The OCTO-Plus intervention. <i>Australian Critical Care, 39</i>(6). [https://doi.org/110.1016/j.aucc.2026.101692](https://doi.org/10.1016/j.aucc.2026.101692).'
+citation: 'Marston, M., Perez, MH., & Ramelet, AS. (2026). Co-development of an intervention to support families of chronic critically ill children in paediatric critical care—The OCTO-Plus intervention. <i>Australian Critical Care, 39</i>(6). https://doi.org/110.1016/j.aucc.2026.101692.'
 cover: /images/publications/2026_publication_8-octoplus_development_AUCC.jpg
 ---
 
