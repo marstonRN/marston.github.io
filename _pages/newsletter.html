@@ -7,6 +7,11 @@ author_profile: true
 
 <p>Each week: Swiss health policy, nursing and healthcare news from Switzerland and the world, and new research on family-centred care in paediatric critical care. Every item links to its source.</p>
 
+<div class="nl-note" id="about">
+<p><strong>How this newsletter is made.</strong> Each week, an AI tool searches official sources, reputable news outlets and PubMed, selects relevant items and drafts short syntheses with links to the originals. Every issue is then reviewed, edited and approved by Mark Marston before publication, who takes editorial responsibility for its content.</p>
+<p><strong>Disclaimer.</strong> This newsletter is for information only and does not constitute medical, legal or policy advice. Summaries are condensed and may not capture every nuance of the original sources; please consult the linked sources before relying on any information. Views expressed are my own and do not necessarily reflect those of the institutions I am affiliated with. Corrections and suggestions are welcome.</p>
+</div>
+
 {% assign issues = site.newsletter | sort: "date" | reverse %}
 {% for issue in issues %}
 <article class="nl-item">
@@ -18,6 +23,8 @@ author_profile: true
 {% if issues.size == 0 %}<p>The first issue is on its way.</p>{% endif %}
 
 <style>
+.nl-note { margin: 0.5rem 0 1.5rem; font-size: 0.8em; line-height: 1.5; color: var(--global-text-color-light, #6b6b6b); }
+.nl-note p { margin: 0 0 0.5em; }
 .nl-item { padding: 0.9rem 0; border-bottom: 1px solid var(--global-border-color, #d9d9d9); }
 .nl-item p, .nl-item h3 { margin: 0; }
 .nl-item__date { font-size: 0.8em; font-weight: 600; color: var(--global-link-color, #2f6f7e); }
