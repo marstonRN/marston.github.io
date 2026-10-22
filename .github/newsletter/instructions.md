@@ -34,23 +34,23 @@ Openly readable without an account. Search for this week's posts and articles on
 
 ```yaml
 ---
-title: "Weekly news flash: D Month YYYY"
+title: "A headline of max. 8 words capturing this week, as a newspaper or journal would title it"
 collection: newsletter
 date: YYYY-MM-DD
 excerpt: "One sentence: the single most important item of the week."
 ---
 ```
 
-Any text containing an apostrophe goes in double quotes.
+Any text containing an apostrophe goes in double quotes. The title is a real headline (for example "Premiums rise as nurse staffing debate intensifies"), not a date; the date is shown separately.
 
 ## Structure (max. about 1,000 words, two A4 pages)
 
-1. `## This week in brief`: one bullet per section below, each the key sentence of that section, with the section name in bold.
+1. `## Headlines`: one bullet per section below, each the key sentence of that section: the section name in bold, then ` | `, then the sentence. Example: `- **Swiss health policy** | The Federal Council ...`
 2. `## Swiss health policy`: Federal Council, FOPH (BAG/OFSP), parliament, cantons, votes, tariffs (e.g. TARDOC), nursing initiative implementation. 2 to 4 items.
 3. `## Nursing and healthcare in Switzerland`: SBK-ASI, SGI-SSMI, hospitals, H+, universities, Obsan, Swiss media. 2 to 4 items.
 4. `## Nursing and healthcare worldwide`: WHO, ICN, major journals and international news. 2 to 4 items.
-5. `## New research`: all new PubMed records from the four searches below, as **one executive-summary paragraph of max. 100 words** (links not counted). Group the findings by theme rather than listing papers one by one. Cite every article inline as a numbered link, e.g. `[1](https://pubmed.ncbi.nlm.nih.gov/PMID/)`, so each new article is linked exactly once. Base the summary on titles and abstracts only. If there are no new records this week, write one line saying so.
-6. `## Public debate barometer`: one paragraph of max. 100 words on what is being said about nursing and healthcare in openly accessible public debate this week: which topics come up, roughly how much (more, less or about the same as usual), and the main tones or opinions. Use only open sources (see "Public debate sources" below), link 2 to 4 representative examples, and do not name private individuals. End the paragraph with: *Indicative snapshot from openly accessible sources; not representative of all social media.*
+5. `## New research`: all new PubMed records from the four searches below, as **one executive-summary paragraph of max. 100 words** (links not counted). Group the findings by theme rather than listing papers one by one. Cite every article with a numbered reference in square brackets that links to it, written exactly like `[\[1\]](https://pubmed.ncbi.nlm.nih.gov/PMID/)` so the brackets show, e.g. "nurse-led caregiver support [2], digital tools for eldercare [4]". Each new article is cited exactly once. Base the summary on titles and abstracts only. If there are no new records this week, write one line saying so.
+6. `## Public debate barometer`: one paragraph of max. 100 words on what is being said about nursing and healthcare in openly accessible public debate this week: which topics come up, roughly how much (more, less or about the same as usual), and the main tones or opinions. Use only open sources (see "Public debate sources" below), cite 2 to 4 representative examples with numbered references in square brackets, continuing the numbering from New research (same format), and do not name private individuals. End the paragraph with: *Indicative snapshot from openly accessible sources; not representative of all social media.*
 7. Optional `## Coming up`: relevant events in the next weeks.
 
 End with: `<p style="font-size: 0.8em; color: var(--global-text-color-light, #6b6b6b);">Searched and synthesised with AI assistance (GitHub Copilot); reviewed and approved by Mark Marston before publication. For information only, not medical, legal or policy advice. <a href="/newsletter/#about">About this newsletter</a></p>`
@@ -58,6 +58,7 @@ End with: `<p style="font-size: 0.8em; color: var(--global-text-color-light, #6b
 ## Accuracy rules
 
 - Every item links to its original source (official site, journal, or reputable media). No source, no item.
+- Link style for news items: put the link inside the sentence, in brackets, before the final full stop, with the date: `... remains uncertain ([read the analysis](URL), 21 October).` Never add a separate "Read more" sentence after the item.
 - Only report what the source says; no speculation, no invented figures, dates or quotes.
 - Items must be dated within the covered week (research: entered in PubMed within the last 7 days).
 - Prefer primary sources (admin.ch, bag.admin.ch, who.int, icn.ch, sbk-asi.ch, sgi-ssmi.ch) over secondary reporting. French and German sources are fine; write in English.
