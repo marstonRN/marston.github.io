@@ -12,7 +12,7 @@ redirect_from:
   Sections, in order:
   News flash       -> latest issue from the _newsletter folder, shown in full
   Upcoming events  -> _data/upcoming_events.yml (next two shown; past events disappear automatically)
-  Let's connect    -> _data/linkedin_posts.yml (first two embedded) + LinkedIn button
+  Let's connect    -> _data/linkedin_posts.yml (first two embedded) + LinkedIn button (currently deactivated)
   News links       -> buttons to SGI-SSMI and La Source news
   _data/ssmi_events.yml and _data/ssmi_news.yml are no longer shown on this page.
 {% endcomment %}
@@ -53,6 +53,7 @@ redirect_from:
 </div>
 {% if shown == 0 %}<p>No upcoming events at the moment.</p>{% endif %}
 
+{% comment %} LET'S CONNECT: deactivated. Delete this line and the "endcomment" line below to show it again.
 <h2>Let's connect</h2><hr />
 {% if site.data.linkedin_posts and site.data.linkedin_posts.size > 0 %}
 <div class="ev-grid ev-grid--posts">
@@ -64,6 +65,7 @@ redirect_from:
 </div>
 {% endif %}
 <p class="ev-buttons"><a class="btn btn--primary" href="https://www.linkedin.com/in/ma-marston/">Follow me on LinkedIn</a></p>
+{% endcomment %}
 
 <h2>News links</h2><hr />
 <p class="ev-buttons">
