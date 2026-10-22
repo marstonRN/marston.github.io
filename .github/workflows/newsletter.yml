@@ -42,6 +42,11 @@ jobs:
           rm -f "_newsletter/$TODAY.md"   # a re-run must write a fresh issue, not keep the one already published today
           copilot --no-ask-user --allow-all -p "Today is $TODAY. Write this week's newsletter issue by following .github/newsletter/instructions.md exactly. The instructions file is the only reference for structure, title and style; do not copy the format of earlier issues in _newsletter. The new PubMed records are in pubmed.md. Fetch the news sources listed in the instructions. Write only one file: _newsletter/$TODAY.md. Do not change any other file."
           test -s "_newsletter/$TODAY.md" || { echo "Copilot did not write _newsletter/$TODAY.md"; exit 1; }
+          # Fix the summary heading and separators; if the title is not a short headline, ask Copilot once more
+          if ! python .github/newsletter/check_issue.py "_newsletter/$TODAY.md"; then
+            copilot --no-ask-user --allow-all -p "In _newsletter/$TODAY.md, replace only the value of the title line in the front matter with a headline of at most 8 words that captures this week's content, as a newspaper or journal would title the article. No date, and not the words 'news flash' or 'newsletter'. Keep it in double quotes. Change nothing else."
+            python .github/newsletter/check_issue.py "_newsletter/$TODAY.md" || echo "::warning::The title still needs a new headline; edit it in the pull request."
+          fi
           cp pubmed.md "pubmed-$TODAY.md"
 
       - uses: actions/upload-artifact@v6
