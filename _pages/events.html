@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Let's connect"
+title: "News flash"
 permalink: /events/
 author_profile: true
 redirect_from:
@@ -9,26 +9,27 @@ redirect_from:
 ---
 
 {% comment %}
-  Content comes from four data files:
-  _data/upcoming_events.yml  -> events of your choice (past events disappear automatically)
-  _data/ssmi_events.yml      -> SGI-SSMI events, shown in the SGI-SSMI section (past events disappear automatically)
-  _data/ssmi_news.yml        -> SGI-SSMI news items (the two most recent are shown)
-  _data/linkedin_posts.yml   -> LinkedIn posts to embed (the first two are shown)
+  Sections, in order:
+  News flash       -> latest issue from the _newsletter folder, shown in full
+  Upcoming events  -> _data/upcoming_events.yml (next two shown; past events disappear automatically)
+  Let's connect    -> _data/linkedin_posts.yml (first two embedded) + LinkedIn button
+  News links       -> buttons to SGI-SSMI and La Source news
+  _data/ssmi_events.yml and _data/ssmi_news.yml are no longer shown on this page.
 {% endcomment %}
 
 {% assign now_s = site.time | date: "%s" | plus: 0 %}
 
-<h2>Latest on LinkedIn</h2><hr />
-{% if site.data.linkedin_posts and site.data.linkedin_posts.size > 0 %}
-<div class="ev-grid ev-grid--posts">
-{% for post in site.data.linkedin_posts limit: 2 %}
-<div class="ev-post">
-<iframe src="{{ post.embed_url }}" height="{{ post.height | default: 600 }}" title="LinkedIn post: {{ post.label | default: 'post' | escape }}" loading="lazy" frameborder="0" allowfullscreen></iframe>
+{% assign nl_latest = site.newsletter | sort: "date" | reverse | first %}
+{% if nl_latest %}
+<div class="nl-issue">
+<p class="ev-card__date">{{ nl_latest.date | date: "%-d %B %Y" }}</p>
+<h2 class="nl-issue__title">{{ nl_latest.title }}</h2>
+{{ nl_latest.content | replace: "<h2", "<h3" | replace: "</h2>", "</h3>" }}
 </div>
-{% endfor %}
-</div>
+{% else %}
+<p>The first issue is on its way.</p>
 {% endif %}
-<p class="ev-more"><a href="https://www.linkedin.com/in/ma-marston/">Follow me on LinkedIn &rarr;</a></p>
+<p class="ev-more"><a href="/newsletter/">Previous issues &rarr;</a></p>
 
 <h2>Upcoming events</h2><hr />
 {% assign events_sorted = site.data.upcoming_events | sort: "date" %}
@@ -44,7 +45,7 @@ redirect_from:
 {% if ev.place %}<p class="ev-card__meta">{{ ev.place }}</p>{% endif %}
 {% if ev.organiser %}<p class="ev-card__meta">{{ ev.organiser }}</p>{% endif %}
 {% if ev.note %}<p class="ev-card__note">{{ ev.note }}</p>{% endif %}
-<p class="ev-card__link"><a href="{{ ev.url }}">Program and sign-up here &rarr;</a></p>
+<p class="ev-card__link"><a href="{{ ev.url }}">Event website &rarr;</a></p>
 </article>
 {% assign shown = shown | plus: 1 %}
 {% endif %}
@@ -52,39 +53,38 @@ redirect_from:
 </div>
 {% if shown == 0 %}<p>No upcoming events at the moment.</p>{% endif %}
 
-<h2>News from the Swiss Society of Intensive Care Medicine</h2><hr />
-{% assign ssmi_events_sorted = site.data.ssmi_events | sort: "date" %}
-{% assign ssmi_shown = 0 %}
-<div class="ev-grid">
-{% for ev in ssmi_events_sorted %}
-{% assign ev_last = ev.end_date | default: ev.date %}
-{% assign ev_s = ev_last | date: "%s" | plus: 86400 %}
-{% if ev_s >= now_s and ssmi_shown < 2 %}
-<article class="ev-card">
-<p class="ev-card__date">{{ ev.date | date: "%-d %B %Y" }}{% if ev.end_date %} – {{ ev.end_date | date: "%-d %B %Y" }}{% endif %}</p>
-<h3 class="ev-card__title"><a href="{{ ev.url }}">{{ ev.title }}</a></h3>
-{% if ev.place %}<p class="ev-card__meta">{{ ev.place }}</p>{% endif %}
-{% if ev.note %}<p class="ev-card__note">{{ ev.note }}</p>{% endif %}
-<p class="ev-card__link"><a href="{{ ev.url }}">Event website &rarr;</a></p>
-</article>
-{% assign ssmi_shown = ssmi_shown | plus: 1 %}
+<h2>Let's connect</h2><hr />
+{% if site.data.linkedin_posts and site.data.linkedin_posts.size > 0 %}
+<div class="ev-grid ev-grid--posts">
+{% for post in site.data.linkedin_posts limit: 2 %}
+<div class="ev-post">
+<iframe src="{{ post.embed_url }}" height="{{ post.height | default: 600 }}" title="LinkedIn post: {{ post.label | default: 'post' | escape }}" loading="lazy" frameborder="0" allowfullscreen></iframe>
+</div>
+{% endfor %}
+</div>
 {% endif %}
-{% endfor %}
-</div>
-{% assign news_sorted = site.data.ssmi_news | sort: "date" | reverse %}
-<div class="ev-grid">
-{% for item in news_sorted limit: 2 %}
-<article class="ev-card">
-<p class="ev-card__date">{{ item.date | date: "%-d %B %Y" }}</p>
-<h3 class="ev-card__title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
-{% if item.summary %}<p class="ev-card__note">{{ item.summary }}</p>{% endif %}
-<p class="ev-card__link"><a href="{{ item.url }}">Read on sgi-ssmi.ch &rarr;</a></p>
-</article>
-{% endfor %}
-</div>
-<p class="ev-more"><a href="https://sgi-ssmi.ch/de/news">All SGI-SSMI news &rarr;</a></p>
+<p class="ev-buttons"><a class="btn btn--primary" href="https://www.linkedin.com/in/ma-marston/">Follow me on LinkedIn</a></p>
+
+<h2>News links</h2><hr />
+<p class="ev-buttons">
+<a class="btn btn--primary" href="https://sgi-ssmi.ch/fr/news">SGI-SSMI news</a>
+<a class="btn btn--primary" href="https://www.ecolelasource.ch/fr/actualites">La Source news</a>
+</p>
 
 <style>
+.nl-issue {
+  margin: 0.5rem 0 0.5rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--global-border-color, #d9d9d9);
+  border-radius: 6px;
+}
+.nl-issue > p:first-child { margin: 0; }
+.nl-issue__title {
+  margin: 0.35rem 0 0.5rem !important;
+  border-bottom: none !important;
+  font-size: 1.2em;
+}
+.nl-issue h3 { font-size: 1.05em; margin-top: 1.4em; }
 .ev-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -135,6 +135,13 @@ redirect_from:
   font-size: 0.9em;
   margin-bottom: 2.5em;
 }
+.ev-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0 2.5em;
+}
+.ev-buttons .btn { margin: 0; }
 .ev-post iframe {
   display: block;
   width: 100%;
