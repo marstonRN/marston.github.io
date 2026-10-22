@@ -1,7 +1,7 @@
 """Check and fix the format of a drafted newsletter issue.
 
 Usage: python check_issue.py ISSUE_MD
-Fixes the summary heading and the bullet separators in place.
+Fixes the summary heading and turns the Headlines into a two-column table, in place.
 Exits with code 2 if the title is not a short headline (so the workflow can ask Copilot to fix it).
 """
 import re
@@ -13,9 +13,27 @@ text = open(path, encoding="utf-8").read()
 # Summary heading: always "## Headlines"
 text = re.sub(r"^##[ \t]*(This week in brief|Summary|In brief|Key points)[ \t]*$", "## Headlines", text, flags=re.M | re.I)
 
-# Bullets: "- **Section:** sentence" or "- **Section**: sentence" -> "- **Section** | sentence"
-text = re.sub(r"^([ \t]*[-*][ \t]+\*\*[^*\n]+?):\*\*[ \t]*", r"\1** | ", text, flags=re.M)
-text = re.sub(r"^([ \t]*[-*][ \t]+\*\*[^*\n]+?\*\*)[ \t]*:[ \t]*", r"\1 | ", text, flags=re.M)
+# Headlines: always a two-column table "| **Section** | sentence |", no bullets, no header row
+def headlines_table(match):
+    rows = []
+    for line in match.group(2).splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if re.fullmatch(r"\|?[\s:|-]+\|?", line):  # table separator line: drop it and any plain header row before it
+            if rows and "**" not in rows[-1]:
+                rows.pop()
+            continue
+        m = (re.match(r"^[-*][ \t]+\*\*(.+?):\*\*[ \t]*(.+)$", line)
+             or re.match(r"^[-*][ \t]+\*\*(.+?)\*\*[ \t]*[|:][ \t]*(.+)$", line)
+             or re.match(r"^\|[ \t]*\*\*(.+?)\*\*[ \t]*\|[ \t]*(.+?)[ \t]*\|?$", line))
+        if m:
+            rows.append(f"| **{m.group(1).strip().rstrip(':')}** | {m.group(2).strip().rstrip('|').strip()} |")
+        else:
+            rows.append(line)
+    return match.group(1) + "\n\n" + "\n".join(rows) + "\n\n"
+
+text = re.sub(r"^(## Headlines)[ \t]*\n(.*?)(?=^## |\Z)", headlines_table, text, count=1, flags=re.M | re.S)
 
 open(path, "w", encoding="utf-8").write(text)
 
