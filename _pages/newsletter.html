@@ -5,17 +5,17 @@ permalink: /newsletter/
 author_profile: true
 ---
 
-<p>Each week: Swiss health policy, nursing and healthcare news from Switzerland and the world, and new research on family-centred care in paediatric critical care. Every item links to its source.</p>
+<p>Each week: Swiss health policy, nursing and healthcare news from Switzerland and the world, and new research on family-centred care in paediatric critical care.</p>
 
 <div class="nl-note" id="about">
-<p><strong>How this newsletter is made.</strong> Each week, an AI tool searches official sources, reputable news outlets and PubMed, selects relevant items and drafts short syntheses with links to the originals. Every issue is then reviewed, edited and approved by Mark Marston before publication, who takes editorial responsibility for its content.</p>
+<p><strong>How this newsletter is made.</strong> Each week, an AI tool (GitHub Copilot) searches official sources, reputable news outlets and PubMed, selects relevant items and drafts short syntheses with links to the originals. Every issue is then reviewed, edited and approved by Mark Marston before publication.</p>
 <p><strong>Disclaimer.</strong> This newsletter is for information only and does not constitute medical, legal or policy advice. Summaries are condensed and may not capture every nuance of the original sources; please consult the linked sources before relying on any information. Views expressed are my own and do not necessarily reflect those of the institutions I am affiliated with. Corrections and suggestions are welcome.</p>
 </div>
 
 {% assign issues = site.newsletter | sort: "date" | reverse %}
 {% for issue in issues %}
 <article class="nl-item">
-<p class="nl-item__date">{{ issue.date | date: "%-d %B %Y" }}</p>
+<p class="nl-item__date">Weekly news flash | {{ issue.date | date: "%-d %B %Y" }}</p>
 <h3 class="nl-item__title"><a href="{{ issue.url }}">{{ issue.title }}</a></h3>
 {% if issue.excerpt %}<p class="nl-item__lead">{{ issue.excerpt | strip_html }}</p>{% endif %}
 </article>
