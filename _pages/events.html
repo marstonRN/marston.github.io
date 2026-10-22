@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "News flash"
+title: "News"
 permalink: /events/
 author_profile: true
 redirect_from:
@@ -19,6 +19,7 @@ redirect_from:
 
 {% assign now_s = site.time | date: "%s" | plus: 0 %}
 
+<h2>Weekly news flash</h2><hr />
 {% assign nl_latest = site.newsletter | sort: "date" | reverse | first %}
 {% if nl_latest %}
 <div class="nl-issue">
