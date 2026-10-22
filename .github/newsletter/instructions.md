@@ -1,4 +1,4 @@
-# Weekly newsletter: instructions
+# Weekly news flash: instructions
 
 GitHub Copilot follows this file every week (workflow `.github/workflows/newsletter.yml`). Edit it to change the newsletter; the next run uses the new version. The four PubMed searches at the end are run by the workflow itself.
 
@@ -21,11 +21,20 @@ Open these pages, find items from the last 7 days, and follow links to the full 
 - WHO news: https://www.who.int/news
 - ICN (International Council of Nurses) news: https://www.icn.ch/news
 
+## Public debate sources
+
+Openly readable without an account. Search for this week's posts and articles on nursing, healthcare, hospitals, health insurance premiums, intensive care and family care in Switzerland and internationally.
+
+- Opinion and commentary sections of Swiss media: NZZ, Tages-Anzeiger, Le Temps, 24 heures, SRF, RTS, Swissinfo
+- Reddit: https://www.reddit.com/r/Switzerland/ and https://www.reddit.com/r/nursing/
+- Bluesky: https://bsky.app/search
+- Mastodon: public hashtag pages such as https://mastodon.social/tags/nursing
+
 ## Front matter
 
 ```yaml
 ---
-title: "Weekly newsletter: D Month YYYY"
+title: "Weekly news flash: D Month YYYY"
 collection: newsletter
 date: YYYY-MM-DD
 excerpt: "One sentence: the single most important item of the week."
@@ -41,7 +50,8 @@ Any text containing an apostrophe goes in double quotes.
 3. `## Nursing and healthcare in Switzerland`: SBK-ASI, SGI-SSMI, hospitals, H+, universities, Obsan, Swiss media. 2 to 4 items.
 4. `## Nursing and healthcare worldwide`: WHO, ICN, major journals and international news. 2 to 4 items.
 5. `## New research`: all new PubMed records from the four searches below, as **one executive-summary paragraph of max. 100 words** (links not counted). Group the findings by theme rather than listing papers one by one. Cite every article inline as a numbered link, e.g. `[1](https://pubmed.ncbi.nlm.nih.gov/PMID/)`, so each new article is linked exactly once. Base the summary on titles and abstracts only. If there are no new records this week, write one line saying so.
-6. Optional `## Coming up`: relevant events in the next weeks.
+6. `## Public debate barometer`: one paragraph of max. 100 words on what is being said about nursing and healthcare in openly accessible public debate this week: which topics come up, roughly how much (more, less or about the same as usual), and the main tones or opinions. Use only open sources (see "Public debate sources" below), link 2 to 4 representative examples, and do not name private individuals. End the paragraph with: *Indicative snapshot from openly accessible sources; not representative of all social media.*
+7. Optional `## Coming up`: relevant events in the next weeks.
 
 End with: `<p style="font-size: 0.8em; color: var(--global-text-color-light, #6b6b6b);">Searched and synthesised with AI assistance (GitHub Copilot); reviewed and approved by Mark Marston before publication. For information only, not medical, legal or policy advice. <a href="/newsletter/#about">About this newsletter</a></p>`
 
