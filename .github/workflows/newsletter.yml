@@ -78,7 +78,7 @@ jobs:
           cp "$ISSUE" "_newsletter/$DATE.md"
           git add "_newsletter/$DATE.md"
           git commit -m "Newsletter $DATE"
-          git push -u origin "$BRANCH"
+          git push --force -u origin "$BRANCH"   # force: a re-run on the same day replaces the earlier draft
           {
             echo "Draft newsletter for $DATE, written by GitHub Copilot."
             echo
@@ -91,4 +91,8 @@ jobs:
             echo
             echo "</details>"
           } > body.md
-          gh pr create --base master --head "$BRANCH" --title "Newsletter $DATE" --body-file body.md
+          if gh pr view "$BRANCH" >/dev/null 2>&1; then
+            gh pr edit "$BRANCH" --body-file body.md   # re-run: the open pull request now shows the new draft
+          else
+            gh pr create --base master --head "$BRANCH" --title "Newsletter $DATE" --body-file body.md
+          fi
