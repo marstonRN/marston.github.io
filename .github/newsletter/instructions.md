@@ -16,7 +16,6 @@ Open these pages, find items from the last 7 days, and follow links to the full 
 - FOPH (BAG/OFSP) news: https://www.bag.admin.ch/en/current
 - SBK-ASI (Swiss nurses association): https://www.sbk-asi.ch
 - SGI-SSMI: https://sgi-ssmi.ch/fr/news
-- La Source School of Nursing: https://www.ecolelasource.ch/fr/actualites
 - Swissinfo health news: https://www.swissinfo.ch/eng/
 - WHO news: https://www.who.int/news
 - ICN (International Council of Nurses) news: https://www.icn.ch/news
