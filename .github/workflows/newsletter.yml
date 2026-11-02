@@ -6,7 +6,7 @@ name: Weekly newsletter
 
 on:
   schedule:
-    - cron: "0 5 * * 1"   # Mondays 05:00 UTC (06:00 or 07:00 Swiss time)
+    - cron: "0 2 * * 1"   # Mondays 02:00 UTC (03:00 or 04:00 Swiss time)
   workflow_dispatch:
 
 jobs:
