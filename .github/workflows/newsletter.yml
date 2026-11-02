@@ -83,10 +83,10 @@ jobs:
           mkdir -p _newsletter
           cp "$ISSUE" "_newsletter/$DATE.md"
           git add "_newsletter/$DATE.md"
-          git commit -m "Newsletter $DATE"
+          git commit -m "Newsletter_healthcare_$DATE"
           git push --force -u origin "$BRANCH"   # force: a re-run on the same day replaces the earlier draft
           {
-            echo "Draft newsletter for $DATE, written by GitHub Copilot."
+            echo "Draft healthcare news flash for $DATE, written by GitHub Copilot."
             echo
             echo "Please check every item against its link before merging. Merging publishes it on marston.ch."
             echo "To change something, open the file in this pull request and edit it before merging."
@@ -100,5 +100,5 @@ jobs:
           if [ "$(gh pr list --head "$BRANCH" --state open --json number --jq length)" != "0" ]; then
             gh pr edit "$BRANCH" --body-file body.md   # re-run: the open pull request now shows the new draft
           else
-            gh pr create --base master --head "$BRANCH" --title "Newsletter $DATE" --body-file body.md --assignee marstonRN
+            gh pr create --base master --head "$BRANCH" --title "Newsletter_healthcare_$DATE" --body-file body.md --assignee marstonRN
           fi
