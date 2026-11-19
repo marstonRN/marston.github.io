@@ -13,7 +13,7 @@ citation: "Tapsoba, N., Di Benedetto, L., Blanchon, S., Guzman Villegas-Frei, M.
 
 ### Funding
 
-This project was made possible thanks to funding from the Fondation Planètes Enfants Malades, the Ligue pulmonaire vaudoise and the Canton de Vaud (Commission de Promotion de la Santé et de Lutte contre les Addictions).
+This project was made possible thanks to funding from the <a href="https://fpem.ch/" target="_blank" rel="noopener">Fondation Planètes Enfants Malades</a>, the <a href="https://lpvd.ch/" target="_blank" rel="noopener">Ligue Pulmonaire Vaudoise</a> and the <a href="https://www.vd.ch/sante-soins-et-handicap/prevention-et-maladies/appel-a-projets" target="_blank" rel="noopener">Canton de Vaud (Commission de Promotion de la Santé et de Lutte contre les Addictions)</a>.
 
 <div style="display:flex; flex-wrap:wrap; align-items:center; gap:28px; margin:16px 0 24px;">
   <a href="https://fpem.ch/" target="_blank" rel="noopener" title="Fondation Planètes Enfants Malades"><img src="/images/funding-fpem.jpg" alt="Fondation Planètes Enfants Malades" style="height:80px; width:auto;"></a>
