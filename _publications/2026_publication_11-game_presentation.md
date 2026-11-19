@@ -1,7 +1,7 @@
 ---
 title: "YounG AsthMa E-health: The use of digital tools to support therapeutic education for children and adolescents with asthma – GAME study"
 collection: publications
-category: posters
+category: conferences
 permalink: /publication/2026_publication_11-game_presentation
 excerpt: 'In preparation'
 date: 2026-06-12
